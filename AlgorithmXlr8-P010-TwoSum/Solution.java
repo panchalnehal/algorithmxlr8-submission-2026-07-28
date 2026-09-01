@@ -7,10 +7,11 @@ public class Main {
         long target = sc.nextLong();
         long[] nums = new long[n];
         for (int i = 0; i < n; i++) nums[i] = sc.nextLong();
-        for(int i = 0; i<n ; i++){
-            for(int j = i+1; j<n; j++){
-                if(nums[i] + nums[j] == target){
-                    System.out.println(i + " " + j);
+
+        for( int i = 0; i<n ; i++){
+            for (int j = i+1; j<n;j++){
+                if(nums[i]+nums[j] == target){
+                    System.out.print(i + " "+ j);
                 }
             }
         }
