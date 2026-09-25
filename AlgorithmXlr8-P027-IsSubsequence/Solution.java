@@ -2,23 +2,30 @@ import java.util.*;
 
 public class Main {
     public static boolean isSubsequence(String s, String t){
-        int i = 0;
-        int j = 0;
+        char[] schar = s.toCharArray();
+        char[] tchar = t.toCharArray();
 
-        while(i < s.length() && j < t.length()){
-            if(s.charAt(i) == t.charAt(j)){
-                i++;
+        int lastIndex = -1;
+
+        for(int i = 0; i<schar.length; i++){
+            boolean found = false;
+            for(int j = 0; j<tchar.length; j++ ){
+                if(schar[i] == tchar[j]){
+                    lastIndex = j;
+                    found = true;
+                    break;
+                }
             }
-            j++;
+            if(!found){
+                return false;
+            }
         }
-        return i == s.length();
+        return true;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
         String t = sc.nextLine();
-
         System.out.print(isSubsequence(s,t));
-
     }
 }
